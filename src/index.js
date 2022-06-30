@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './sass/main.scss';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NotFound from './pages/NotFound';
+import Loading from './pages/NotFound/Loading';
+const Provider = lazy(() => (import('./store/Provider')))
+const App = lazy(() => (import('./App')));
+const ListTodo = lazy(() => (import('./components/ListTodo')));
+const AddTodo = lazy(() => (import('./components/AddTodo')));
+const EditTodo = lazy(() => (import('./components/EditTodo')));
+const EditFolder = lazy(() => (import('./components/EditFolder')));
+const Folder = lazy(() => (import('./components/Folder')));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider>
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path='/' element={<App />}>
+              <Route path='' element={<Folder />} />
+              <Route path='/folder' element={<ListTodo />} />
+            </Route>
+            <Route path='/edit-todo/:folderId/:todoId' element={<EditTodo />} />
+            <Route path='/add-todo/:folderId' element={<AddTodo />} />
+            <Route path='/edit-folder/:folderId' element={<EditFolder />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

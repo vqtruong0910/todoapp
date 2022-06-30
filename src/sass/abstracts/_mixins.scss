@@ -1,0 +1,49 @@
+@mixin app-window {
+    width: 100%;
+    height: 100vh;
+    background-color: $app-background;
+    padding: 5% 0;
+}
+
+@mixin app-container {
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    background-color: $app-background-container;
+    position: relative;
+}
+
+@mixin gradient-font-color {
+    background-image: linear-gradient(to right, #6ED5D8, $app-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@mixin back {
+    .back {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        background-color: $app-color;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        transition: all 0.22s linear;
+
+        svg {
+            width: 14px;
+            fill: #fff;
+            margin-top: 10px;
+
+        }
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    }
+}

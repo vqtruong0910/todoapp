@@ -1,0 +1,35 @@
+/* A few custom styles for date inputs */
+
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 50%;
+    background: $app-color;
+    padding: 5px;
+    display: inline-block !important;
+    visibility: visible !important;
+
+    &::-webkit-clear-button {
+        display: none;
+    }
+
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+        color: #2c3e50;
+    }
+
+    &,
+    focus {
+        color: #fff;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }
+}

@@ -1,0 +1,197 @@
+.my-task {
+    padding: 15px;
+    height: inherit;
+    overflow: auto;
+    scrollbar-width: none;
+
+    .header {
+        .gradient {
+            @include gradient-font-color;
+        }
+
+        h3 {
+            text-align: center;
+            text-transform: uppercase;
+            color: #565656;
+            padding: 10px 0;
+        }
+
+        .search {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+
+            .bar-search {
+                position: relative;
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    outline: none;
+                    font-size: 16px;
+                    border: none;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    border-radius: 5px;
+                    background: linear-gradient(to right, #6ED5D8, $app-color);
+                }
+            }
+        }
+    }
+
+    .content {
+        li {
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            transition: all 0.22s linear 0.1s;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.025);
+            }
+        }
+
+        .checked {
+            opacity: 0.4;
+
+            p {
+                text-decoration: line-through;
+            }
+        }
+
+        .bar-todo {
+            display: flex;
+            background-color: $app-color;
+            border-radius: 10px;
+            margin: 15px 0;
+            align-items: center;
+            height: 60px;
+            position: relative;
+
+            .todo-content {
+                flex: 8;
+                display: flex;
+                align-items: center;
+
+                .checkbox-todo {
+                    flex: 2;
+
+                    .custom-checkbox {
+                        // ko can thiet
+                        margin-left: 5px;
+                    }
+                }
+
+                .task-content {
+                    flex: 8;
+                    color: #fff;
+
+                    p {
+                        overflow: hidden;
+                        white-space: nowrap;
+                        max-width: 240px;
+                        text-overflow: ellipsis;
+
+                        span {
+                            position: absolute;
+                            border-radius: 5px;
+                            background-color: #fff;
+                            color: $app-color;
+                            font-size: 12px;
+                            padding: 0 5px;
+                            top: 0;
+                            margin-left: 5px;
+                            margin-top: 3px;
+                        }
+
+                        &:last-child {
+                            font-size: 13px;
+                            color: #dcdcdc;
+                            font-weight: lighter;
+                        }
+                    }
+                }
+            }
+
+            .update-todo {
+                flex: 2;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                height: 100%;
+
+                div {
+                    width: 18px;
+                }
+
+                .edit {
+                    fill: #fff;
+                    transition: all 0.22s linear;
+
+                    svg {
+                        fill: #fff;
+                        transition: all 0.22s linear;
+
+                    }
+
+                    &:hover {
+                        svg {
+                            fill: rgb(199, 199, 199);
+                        }
+
+                        fill: rgb(199, 199, 199);
+                    }
+                }
+
+                .delete {
+                    fill: rgb(255, 0, 0);
+                    transition: all 0.22s linear;
+
+                    &:hover {
+                        fill: rgb(184, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    @include back;
+
+    .add-todo {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: $app-color;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        transition: all 0.22s linear;
+
+        a {
+            width: 100%;
+
+            svg {
+                // transform: translate(3%, 50%);
+                margin-top: 10px;
+                fill: #fff;
+                width: 20px;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

@@ -1,0 +1,104 @@
+.add-update-page {
+    padding: 15px;
+    height: inherit;
+    overflow: auto;
+    scrollbar-width: none;
+
+    .gradient {
+        @include gradient-font-color;
+    }
+
+    .content {
+        h3 {
+            color: #565656;
+            padding: 10px 0;
+        }
+
+        .input-note {
+            .container-note {
+                position: relative;
+                margin: 0 10px;
+
+                input {
+                    width: 50%;
+                    height: 50%;
+                    outline: none;
+                    border: none;
+                    font-size: 16px;
+                }
+
+                p {
+                    position: absolute;
+                    font-size: 10px;
+                    font-style: italic;
+                    color: rgb(230, 0, 0);
+                    cursor: pointer;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 50%;
+                    height: 2px;
+                    background: linear-gradient(to right, #6ED5D8, $app-color);
+                }
+            }
+        }
+
+        .input-date {
+            position: relative;
+            padding: 0 10px;
+
+            p {
+                position: absolute;
+                font-size: 10px;
+                font-style: italic;
+                color: rgb(230, 0, 0);
+                cursor: pointer;
+            }
+        }
+
+        .form-radio {
+            position: relative;
+
+            p {
+                position: absolute;
+                font-size: 10px;
+                font-style: italic;
+                color: rgb(230, 0, 0);
+                cursor: pointer;
+            }
+        }
+
+        .form-checkbox {
+            position: relative;
+
+            p {
+                position: absolute;
+                font-size: 10px;
+                font-style: italic;
+                color: rgb(230, 0, 0);
+                cursor: pointer;
+            }
+
+            .container-checkbox {
+                // padding: 0 10px;
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+        }
+
+        button {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            text-transform: uppercase;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

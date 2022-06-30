@@ -1,0 +1,14 @@
+button {
+    color: #fff;
+    background-color: $app-color;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.22s linear;
+    text-align: center;
+}
+
+button:hover {
+    background-color: $app-color-hover;
+    cursor: pointer;
+}
