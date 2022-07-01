@@ -1,70 +1,57 @@
 .custom-checkbox {
-    // display: block;
     position: relative;
-    // padding-left: 35px;
-    // margin-bottom: 12px;
-    // cursor: pointer;
-    // font-size: 22px;
-    // -webkit-user-select: none;
-    // -moz-user-select: none;
-    // -ms-user-select: none;
-    // user-select: none;
 
     input[type="checkbox"] {
         position: absolute;
         opacity: 0;
-        cursor: pointer;
         height: 0;
         width: 0;
-    }
+        cursor: pointer;
 
-    input[type="checkbox"]:checked {
-        ~.checkmark {
-            background-color: #2196F3;
+        &:checked {
+            &~.checkmark {
+                background-color: #2196F3;
+
+                &:after {
+                    display: block;
+                }
+            }
         }
+    }
 
-        ~.checkmark:after {
-            display: block;
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 5px;
+        transform: translateX(50%);
+        transition: all 0.22s linear;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        cursor: pointer;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
         }
     }
 
-    .checkmark:after {
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    // Su dung khi ma co di kem chu phai xoa dong duoi
-    border-radius: 5px;
-    transform: translateX(50%);
-    transition: all 0.22s linear;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    cursor: pointer;
-}
-
-.custom-checkbox:hover {
-    input {
-        ~.checkmark {
-            background-color: #ccc;
+    &:hover {
+        input {
+            ~.checkmark {
+                background-color: #ccc;
+            }
         }
     }
 }

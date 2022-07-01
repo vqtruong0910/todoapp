@@ -70,6 +70,10 @@
                 color: rgb(230, 0, 0);
                 cursor: pointer;
             }
+
+            div {
+                padding: 0 10px;
+            }
         }
 
         .form-checkbox {
@@ -83,10 +87,18 @@
                 cursor: pointer;
             }
 
+
             .container-checkbox {
                 // padding: 0 10px;
                 display: grid;
                 grid-template-columns: auto auto;
+                padding: 0 10px;
+            }
+        }
+
+        .status {
+            div {
+                padding: 0 10px;
             }
         }
 

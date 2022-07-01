@@ -85,7 +85,7 @@ function StateOfComponent({ register, errors }) {
                 </div>
                 {errors.todo?.type === 'required' && <p>{errors.todo.message}</p>}
             </div>
-            <div>
+            <div className="status">
                 <h3>Trạng thái</h3>
                 <div>
                     <label className="custom-checkbox-label">Hoàn thành
