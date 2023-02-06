@@ -1,4 +1,4 @@
-import { addDoc, arrayUnion, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from "firebase/firestore";
+import { addDoc, arrayUnion, collection, deleteDoc, doc, getDocs, onSnapshot, orderBy, query, updateDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "../firebase/firebase";
 import { loadData } from "../store/actions";
@@ -14,7 +14,6 @@ const getDataFromFireStore = async (dispatch) => {
     const data = await getDocs(queryRef);
     dispatch(loadData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))))
 }
-
 
 const addFolderFromFireStore = (name) => {
     const docRef = addDoc(usersCollectionRef, {

@@ -1,5 +1,6 @@
 {
   "name": "todos",
+  "author": "Quang Truong",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

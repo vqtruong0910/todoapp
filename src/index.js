@@ -16,13 +16,14 @@ const Folder = lazy(() => (import('./components/Folder')));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/todos'>
+      {/* <BrowserRouter> */}
       <Provider>
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path='/' element={<App />}>
               <Route path='' element={<Folder />} />
-              <Route path='/folder' element={<ListTodo />} />
+              <Route path='folder' element={<ListTodo />} />
             </Route>
             <Route path='/edit-todo/:folderId/:todoId' element={<EditTodo />} />
             <Route path='/add-todo/:folderId' element={<AddTodo />} />

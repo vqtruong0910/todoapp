@@ -14,11 +14,10 @@ function Provider({ children }) {
                 id: doc.id
             }))
             dispatch(loadData(data));
-            setStateLoading(true);
+            setStateLoading(data.length !== 0 ? true : false);
         })
         return () => {
             unsubscribe();
-            setStateLoading(false);
         }
     }, []);
 
