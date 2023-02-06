@@ -16,7 +16,7 @@ const Folder = lazy(() => (import('./components/Folder')));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/todoapp'>
       {/* <BrowserRouter> */}
       <Provider>
         <Suspense fallback={<Loading />}>
