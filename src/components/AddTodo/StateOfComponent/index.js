@@ -44,41 +44,41 @@ function StateOfComponent({ register, errors }) {
                 {errors.priority?.type === 'required' && <p>{errors.priority.message}</p>}
             </div>
             <div className="form-checkbox">
-                <h3>Việc cần thực hiện</h3>
+                <h3>Công việc đề xuất</h3>
                 <div className="container-checkbox">
                     <div>
                         <label className="custom-checkbox-label">Lau nhà
-                            <input type="checkbox" {...register("todo", { required: "Choose what to do !" })} value="1" />
+                            <input type="checkbox" {...register("todo")} value="1" />
                             <span className="checkmark"></span>
                         </label>
                     </div>
                     <div>
                         <label className="custom-checkbox-label">Xem phim
-                            <input type="checkbox" {...register("todo", { required: "Choose what to do !" })} value="2" />
+                            <input type="checkbox" {...register("todo")} value="2" />
                             <span className="checkmark"></span>
                         </label>
                     </div>
                     <div>
                         <label className="custom-checkbox-label">Đi chơi
-                            <input type="checkbox" {...register("todo", { required: "Choose what to do !" })} value="3" />
+                            <input type="checkbox" {...register("todo")} value="3" />
                             <span className="checkmark"></span>
                         </label>
                     </div>
                     <div>
                         <label className="custom-checkbox-label">Đi ăn
-                            <input type="checkbox" {...register("todo", { required: "Choose what to do !" })} value="4" />
+                            <input type="checkbox" {...register("todo")} value="4" />
                             <span className="checkmark"></span>
                         </label>
                     </div>
                     <div>
                         <label className="custom-checkbox-label">Đi ngủ
-                            <input type="checkbox" {...register("todo", { required: "Choose what to do !" })} value="5" />
+                            <input type="checkbox" {...register("todo")} value="5" />
                             <span className="checkmark"></span>
                         </label>
                     </div>
                     <div>
                         <label className="custom-checkbox-label">Đi làm
-                            <input type="checkbox" {...register("todo", { required: "Choose what to do !" })} value="6" />
+                            <input type="checkbox" {...register("todo")} value="6" />
                             <span className="checkmark"></span>
                         </label>
                     </div>
