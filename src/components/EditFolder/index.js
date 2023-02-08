@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Context from "../../store/Context";
 import { useForm } from "react-hook-form";
 import { updateFolderFromFireStore } from "../../feature/crud";
+import sgvBack from "../../sgv/sgvBack";
 
 function EditFolder() {
     const { folderId } = useParams();
@@ -21,6 +22,10 @@ function EditFolder() {
             updateFolderFromFireStore(folder[folderId].id, data.name)
             navigate("/");
         }
+    }, [])
+
+    const backPage = useCallback(() => {
+        navigate(-1);
     }, [])
 
     useEffect(() => {
@@ -49,6 +54,7 @@ function EditFolder() {
                 </div>
                 <button>Save</button>
             </form>
+            <div className="back" onClick={backPage}>{sgvBack}</div>
         </div>
     );
 }

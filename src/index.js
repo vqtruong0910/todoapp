@@ -23,7 +23,7 @@ root.render(
           <Routes>
             <Route path='/' element={<App />}>
               <Route path='' element={<Folder />} />
-              <Route path='folder' element={<ListTodo />} />
+              <Route path='/folder' element={<ListTodo />} />
               <Route path='/edit-todo/:folderId/:todoId' element={<EditTodo />} />
               <Route path='/add-todo/:folderId' element={<AddTodo />} />
               <Route path='/edit-folder/:folderId' element={<EditFolder />} />
