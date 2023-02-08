@@ -29,7 +29,7 @@ function ListTodo() {
         setStateListTodo(result);
     }, [folder])
     const handleDeleteTodo = useCallback((index) => {
-        if (global.confirm("Ban co chac chan muon xoa khong"))
+        if (global.confirm("Are you sure you want to delete it?"))
             deleteTodoFromFireStore(folder[folderId].list, folder[folderId].id, index)
     }, [folder]);
     const handleComplete = useCallback((item) => {

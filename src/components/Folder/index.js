@@ -25,7 +25,7 @@ function Folder() {
         navigate(`/edit-folder/${index}`);
     }, [])
     const handleClickDeleteFolder = useCallback((index) => {
-        if (global.confirm("Ban co chac chan muon xoa danh muc nay chu\nNeu ok toan bo du lieu di cung cung se bi mat"))
+        if (global.confirm("Are you sure you want to delete it?"))
             // dispatch(deleteFolder(index));
             deleteFolderFromFireStore(index);
     }, [])

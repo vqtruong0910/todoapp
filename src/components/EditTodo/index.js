@@ -22,27 +22,25 @@ function EditTodo() {
     });
     const handleSubmitForm = useCallback((data) => {
         // dispatch(editNoteInFolder(folderId, todoId, data.note, data.date, data.priority, data.todo, data.complete));
-        updateTodoFromFireStore(folder[folderId].id, todoId, folder[folderId].list, data.note, data.date, data.priority, data.todo, data.complete)
-        navigate(-1);
+        if (window.confirm("Please confirm you want to change ?")) {
+            updateTodoFromFireStore(folder[folderId].id, todoId, folder[folderId].list, data.note, data.date, data.priority, data.todo, data.complete)
+            navigate(-1);
+        }
     }, []);
 
     return (
-        <div className="App">
-            <div className="container">
-                <div className="add-update-page">
-                    <div className="gradient">
-                        <h1>Edit Note</h1>
-                    </div>
-                    <div className="content">
-                        <form onSubmit={handleSubmit(handleSubmitForm)}>
-                            <StateOfComponent
-                                register={register}
-                                errors={errors}
-                            />
-                            <button>Lưu</button>
-                        </form>
-                    </div>
-                </div>
+        <div className="add-update-page">
+            <div className="gradient">
+                <h1>Edit Note</h1>
+            </div>
+            <div className="content">
+                <form onSubmit={handleSubmit(handleSubmitForm)}>
+                    <StateOfComponent
+                        register={register}
+                        errors={errors}
+                    />
+                    <button>Lưu</button>
+                </form>
             </div>
         </div>
     );

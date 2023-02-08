@@ -1,4 +1,4 @@
-import { addDoc, arrayUnion, collection, deleteDoc, doc, getDocs, onSnapshot, orderBy, query, updateDoc } from "firebase/firestore";
+import { addDoc, arrayUnion, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "../firebase/firebase";
 import { loadData } from "../store/actions";
@@ -40,9 +40,9 @@ const deleteFolderFromFireStore = (docId) => {
         })
 }
 
-const updateFolderFromFireStore = async (docId, name) => {
+const updateFolderFromFireStore = (docId, name) => {
     const docToUpdate = doc(db, "todos", docId);
-    await updateDoc(docToUpdate, {
+    updateDoc(docToUpdate, {
         name
     })
         .then(() => {
@@ -53,9 +53,9 @@ const updateFolderFromFireStore = async (docId, name) => {
         })
 }
 
-const addTodoFromFireStore = async (docId, content, date, priority, todo, completed) => {
+const addTodoFromFireStore = (docId, content, date, priority, todo, completed) => {
     const docToUpdate = doc(db, "todos", docId);
-    await updateDoc(docToUpdate, {
+    updateDoc(docToUpdate, {
         list: arrayUnion({
             id: uuidv4(),
             content,
@@ -73,7 +73,7 @@ const addTodoFromFireStore = async (docId, content, date, priority, todo, comple
         })
 }
 
-const updateTodoFromFireStore = async (docId, todoId, list, content, date, priority, todo, completed) => {
+const updateTodoFromFireStore = (docId, todoId, list, content, date, priority, todo, completed) => {
     const docToUpdate = doc(db, "todos", docId);
     const newList = [...list];
     newList[todoId] = {
@@ -84,7 +84,7 @@ const updateTodoFromFireStore = async (docId, todoId, list, content, date, prior
         priority: priority,
         todo: todo
     };
-    await updateDoc(docToUpdate, {
+    updateDoc(docToUpdate, {
         list: [
             ...newList
         ]
@@ -97,9 +97,9 @@ const updateTodoFromFireStore = async (docId, todoId, list, content, date, prior
         })
 }
 
-const deleteTodoFromFireStore = async (list, docId, indexId) => {
+const deleteTodoFromFireStore = (list, docId, indexId) => {
     const docToUpdate = doc(db, "todos", docId);
-    await updateDoc(docToUpdate, {
+    updateDoc(docToUpdate, {
         list: [
             ...removeTodo(list, indexId)
         ]
@@ -112,14 +112,14 @@ const deleteTodoFromFireStore = async (list, docId, indexId) => {
         })
 }
 
-const completeTodo = async (docId, todoId, list, completed) => {
+const completeTodo = (docId, todoId, list, completed) => {
     const docToUpdate = doc(db, "todos", docId);
     const newList = [...list];
     newList[todoId] = {
         ...newList[todoId],
         completed: !completed,
     };
-    await updateDoc(docToUpdate, {
+    updateDoc(docToUpdate, {
         list: [
             ...newList
         ]

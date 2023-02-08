@@ -17,27 +17,25 @@ function AddTodo() {
 	});
 	const handleSubmitForm = useCallback((data) => {
 		// dispatch(addTodoInFolder(folderId, data.note, data.date, data.priority, data.todo, data.complete));
-		addTodoFromFireStore(folder[folderId].id, data.note, data.date, data.priority, data.todo, data.complete);
-		navigate(-1)
+		if (window.confirm("Please confirm you want to add ?")) {
+			addTodoFromFireStore(folder[folderId].id, data.note, data.date, data.priority, data.todo, data.complete);
+			navigate(-1)
+		}
 	}, []);
 
 	return (
-		<div className="App">
-			<div className="container">
-				<div className="add-update-page">
-					<div className="gradient">
-						<h1>Add Todo</h1>
-					</div>
-					<div className="content">
-						<form onSubmit={handleSubmit(handleSubmitForm)}>
-							<StateOfComponent
-								register={register}
-								errors={errors}
-							/>
-							<button>Thêm</button>
-						</form>
-					</div>
-				</div>
+		<div className="add-update-page">
+			<div className="gradient">
+				<h1>Add Todo</h1>
+			</div>
+			<div className="content">
+				<form onSubmit={handleSubmit(handleSubmitForm)}>
+					<StateOfComponent
+						register={register}
+						errors={errors}
+					/>
+					<button>Thêm</button>
+				</form>
 			</div>
 		</div>
 	);
